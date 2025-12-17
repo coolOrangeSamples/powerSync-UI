@@ -33,7 +33,7 @@ function Get-DialogApsContent($hub, $project, $showFiles = $false) {
                 $node.Children.Add($folderNode)      
             }
             elseif ($child.type -eq "items") {
-                if (-not $showFiles) {
+                if (-not $showFiles){
                     continue
                 }
                 $itemNode = [powerSync.TreeViewNode]::new($node, $true)
@@ -79,7 +79,7 @@ function Get-DialogApsContent($hub, $project, $showFiles = $false) {
         $rootNode.Type = $type
         $rootNode.Object = $folder
         $rootNode.add_LoadChildren({ LoadChildren($args[0]) })
-        $rootNode.IsExpanded = $true
+        #$rootNode.IsExpanded = $true
         $nodes.Add($rootNode)
     }        
 
