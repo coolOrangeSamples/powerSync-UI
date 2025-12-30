@@ -9,6 +9,9 @@
 # How to fix DPI display issues in Vault:
 # https://www.autodesk.com/support/technical/article/caas/tsarticles/ts/gyzDnXXycpDjsEGyzJ7TY.html
 
+foreach ($module in Get-Childitem "C:\ProgramData\coolOrange\powerAPS" -Name -Filter "*.psm1") {
+    Import-Module "C:\ProgramData\coolOrange\powerAPS\$module" -Force -Global
+}
 
 if ($processName -notin @('Connectivity.VaultPro')) {
 	return

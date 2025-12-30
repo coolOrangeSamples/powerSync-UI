@@ -6,6 +6,10 @@
 # OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.   #
 #==============================================================================#
 
+foreach ($module in Get-Childitem "C:\ProgramData\coolOrange\powerAPS" -Name -Filter "*.psm1") {
+    Import-Module "C:\ProgramData\coolOrange\powerAPS\$module" -Force -Global
+}
+
 function Get-DialogApsAttributeMapping($vaultFolderPath, [Hashtable]$mapping) {
     class DataContext {
         [System.Collections.ObjectModel.ObservableCollection[powerSync.MappingItem]] $Mapping

@@ -6,6 +6,10 @@
 # OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.   #
 #==============================================================================#
 
+foreach ($module in Get-Childitem "C:\ProgramData\coolOrange\powerAPS" -Name -Filter "*.psm1") {
+    Import-Module "C:\ProgramData\coolOrange\powerAPS\$module" -Force -Global
+}
+
 function Get-DialogApsReviewer($project, $step) {
     $itemsSource = @()
     $users = Get-ApsAccProjectUsers $project
